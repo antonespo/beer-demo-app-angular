@@ -1,0 +1,33 @@
+<li class="list-group-item">
+  <div >
+    <label class="lead mb-2">{{ beer.beerName }}</label>
+  </div>
+  <div  >
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Style</th>
+          <th scope="col">UPC</th>
+          <th scope="col">Price</th>
+          <th scope="col">Last Modified</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active">
+          <td>{{ beer.beerStyle }}</td>
+          <td>{{ beer.upc }}</td>
+          <td>${{ beer.price }}</td>
+          <td>{{ beer.lastModifiedDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="container" style="display: flex; justify-content: right;">
+      <button class="btn btn-primary btn-sm mx-3" (click)="editBeer(beer)">
+        Edit
+      </button>
+      <button class="btn btn-danger btn-sm mx-3" (click)="deleteBeer(beer)">
+        Delete
+      </button>
+    </div>
+  </div>
+</li>

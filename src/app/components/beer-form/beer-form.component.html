@@ -1,0 +1,66 @@
+<div class="card shadow text-center mb-5">
+  <div class="card-header bg-primary text-light">
+    {{ isEdit ? 'Edit Beer' : 'Add Beer' }}
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="beerForm" (submit)="onSubmit()">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="isFormFieldValid('beerName') ? 'is-invalid' : ''"
+          placeholder="Beer title"
+          formControlName="beerName"
+        />
+        <div class="invalid-feedback">Please specify the beer name</div>
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="isFormFieldValid('upc') ? 'is-invalid' : ''"
+          placeholder="Upc code"
+          formControlName="upc"
+        />
+        <div class="invalid-feedback">Please specify the upc code</div>
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="number"
+          class="form-control"
+          [ngClass]="isFormFieldValid('price') ? 'is-invalid' : ''"
+          placeholder="Price"
+          formControlName="price"
+        />
+        <div class="invalid-feedback">Please specify the price</div>
+      </div>
+
+      <div class="mb-3">
+        <select
+          formControlName="beerStyle"
+          class="form-select mb-3"
+          [ngClass]="isFormFieldValid('beerStyle') ? 'is-invalid' : ''"
+        >
+          <option [ngValue]="null" disabled>Choose your beer style</option>
+          <option *ngFor="let beerType of beerTypes" [ngValue]="beerType">
+            {{ beerType }}
+          </option>
+        </select>
+        <div class="invalid-feedback">Please specify the beer style</div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary mx-3"
+        (click)="onSubmit()"
+        routerLink="/list"
+        [disabled]="!beerForm.valid"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
