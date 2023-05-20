@@ -9,7 +9,7 @@
         <input
           type="text"
           class="form-control"
-          [ngClass]="isFormFieldValid('beerName') ? 'is-invalid' : ''"
+          [ngClass]="isFormFieldInvalid('beerName') ? 'is-invalid' : ''"
           placeholder="Beer title"
           formControlName="beerName"
         />
@@ -20,7 +20,7 @@
         <input
           type="text"
           class="form-control"
-          [ngClass]="isFormFieldValid('upc') ? 'is-invalid' : ''"
+          [ngClass]="isFormFieldInvalid('upc') ? 'is-invalid' : ''"
           placeholder="Upc code"
           formControlName="upc"
         />
@@ -31,7 +31,7 @@
         <input
           type="number"
           class="form-control"
-          [ngClass]="isFormFieldValid('price') ? 'is-invalid' : ''"
+          [ngClass]="isFormFieldInvalid('price') ? 'is-invalid' : ''"
           placeholder="Price"
           formControlName="price"
         />
@@ -42,7 +42,7 @@
         <select
           formControlName="beerStyle"
           class="form-select mb-3"
-          [ngClass]="isFormFieldValid('beerStyle') ? 'is-invalid' : ''"
+          [ngClass]="isFormFieldInvalid('beerStyle') ? 'is-invalid' : ''"
         >
           <option [ngValue]="null" disabled>Choose your beer style</option>
           <option *ngFor="let beerType of beerTypes" [ngValue]="beerType">

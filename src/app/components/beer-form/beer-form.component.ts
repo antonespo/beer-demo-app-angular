@@ -56,7 +56,7 @@ export class BeerFormComponent implements OnInit {
     }
   }
 
-  isFormFieldValid(formControl: string): boolean {
+  isFormFieldInvalid(formControl: string): boolean {
     return (
       this.beerForm.controls[formControl].touched &&
       !this.beerForm.controls[formControl].valid
